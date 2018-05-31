@@ -20,6 +20,7 @@ public class Usuario {
     private Date birthdate;
     private String id_nacional;
     private String estado;
+    private String departament;
 
     public Usuario() {
     }
@@ -86,6 +87,14 @@ public class Usuario {
 
     public void setEstado(String estado) {
         this.estado = estado;
+    }
+
+    public String getDepartament() {
+        return departament;
+    }
+
+    public void setDepartament(String departament) {
+        this.departament = departament;
     }
     
     

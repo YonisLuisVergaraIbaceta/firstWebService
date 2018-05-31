@@ -26,7 +26,7 @@ public class UsuarioDAO {
     
     public static Usuario findUserId(int id) {
         Usuario user = new Usuario();
-        String sql = "select id_usuario, email, passwer, last_name, name, birthdate, id_nacional, estado from usuario where id_usuario = ?";
+        String sql = "select id_usuario, email, passwer, last_name, name, birthdate, id_nacional, estado, departamento from usuario where id_usuario = ?";
         try {
             Connection con = ConexionAdmUsuario.obtener();
             PreparedStatement sent = (PreparedStatement) con.prepareStatement(sql);
@@ -41,7 +41,7 @@ public class UsuarioDAO {
                user.setBirthdate(rs.getDate("birthdate"));
                user.setId_nacional(rs.getString("id_nacional"));
                user.setEstado(rs.getString("estado")); 
-               
+               user.setDepartament(rs.getString("departamento"));
             }
             
         } catch (SQLException e) {
@@ -55,7 +55,7 @@ public class UsuarioDAO {
     
     public static Usuario findIdNacional(String idNacional) {
         Usuario user = new Usuario();
-        String sql = "select id_usuario, email, passwer, last_name, name, birthdate, id_nacional, estado from usuario where id_nacional = ?";
+        String sql = "select id_usuario, email, passwer, last_name, name, birthdate, id_nacional, estado,departamento from usuario where id_nacional = ?";
         try {
             Connection con = ConexionAdmUsuario.obtener();
             PreparedStatement sent = (PreparedStatement) con.prepareStatement(sql);
@@ -70,7 +70,7 @@ public class UsuarioDAO {
                user.setBirthdate(rs.getDate("birthdate"));
                user.setId_nacional(rs.getString("id_nacional"));
                user.setEstado(rs.getString("estado")); 
-               
+               user.setDepartament(rs.getString("departamento"));
             }
             
         } catch (SQLException e) {
@@ -84,7 +84,7 @@ public class UsuarioDAO {
     
     public static Usuario findEmaiPaswer(String email,String passwer) {
         Usuario user = new Usuario();
-        String sql = "select id_usuario, email, passwer, last_name, name, birthdate, id_nacional, estado from usuario where email = ? and passwer = ? ";
+        String sql = "select id_usuario, email, passwer, last_name, name, birthdate, id_nacional, estado,departamento from usuario where email = ? and passwer = ? ";
         try {
             Connection con = ConexionAdmUsuario.obtener();
             PreparedStatement sent = (PreparedStatement) con.prepareStatement(sql);
@@ -100,7 +100,7 @@ public class UsuarioDAO {
                user.setBirthdate(rs.getDate("birthdate"));
                user.setId_nacional(rs.getString("id_nacional"));
                user.setEstado(rs.getString("estado")); 
-               
+               user.setDepartament(rs.getString("departamento"));
             }
             
         } catch (SQLException e) {
@@ -115,7 +115,7 @@ public class UsuarioDAO {
     public static List<Usuario> findUserAll() {
         Usuario user = new Usuario();
         List<Usuario> list = new ArrayList<Usuario>();
-        String sql = "select id_usuario, email, passwer, last_name, name, birthdate, id_nacional, estado from usuario ";
+        String sql = "select id_usuario, email, passwer, last_name, name, birthdate, id_nacional, estado,departamento from usuario ";
         try {
             Connection con = ConexionAdmUsuario.obtener();
             PreparedStatement sent = (PreparedStatement) con.prepareStatement(sql);
@@ -132,6 +132,7 @@ public class UsuarioDAO {
                user.setBirthdate(rs.getDate("birthdate"));
                user.setId_nacional(rs.getString("id_nacional"));
                user.setEstado(rs.getString("estado")); 
+               user.setDepartament(rs.getString("departamento"));
                list.add(user);
             }
             

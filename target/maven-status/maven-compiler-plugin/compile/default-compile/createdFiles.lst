@@ -1,0 +1,4 @@
+com\mycompany\webservice\conexion\ConexionAdmUsuario.class
+com\mycompany\webservice\DAO\UsuarioDAO.class
+com\mycompany\webservice\entity\Usuario.class
+com\mycompany\webservice\Usuarios.class
